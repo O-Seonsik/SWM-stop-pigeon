@@ -1,16 +1,28 @@
 import './FilterGroup.css'
-import FilterCheckbox from './FilterCheckbox.js'
+import FilterItem from './FilterItem.js'
+
+function toggleMarker(isOn) {
+  console.log(`toggle marker: ${isOn}`);
+}
+
+function toggleGrid(isOn) {
+  console.log(`toggle grid: ${isOn}`);
+}
 
 function FilterGroup() {
   return (
     <div id="filter-group">
-      <FilterCheckbox
+      <FilterItem
         id="pigeon-marker-check"
         label="마커"
+        defaultChecked={true}
+        onChangeEvent={toggleMarker}
       />
-      <FilterCheckbox
+      <FilterItem
         id="grid-check"
         label="그리드"
+        defaultChecked={false}
+        onChangeEvent={toggleGrid}
       />
     </div>
   );

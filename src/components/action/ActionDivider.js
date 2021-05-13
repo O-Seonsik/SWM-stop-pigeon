@@ -2,7 +2,7 @@ import './ActionDivider.css'
 
 function ActionDivider() {
   return (
-    <div class="action-divider">
+    <div className="action-divider">
 
     </div>
   );
