@@ -1,0 +1,9 @@
+.filter-item label{
+  margin-left: 16px;
+  font: normal normal normal 15px/19px AppleSDGothicNeo;
+  color: #000000;
+}
+
+.filter-item div {
+  margin: 32px 0 0 24px;
+}

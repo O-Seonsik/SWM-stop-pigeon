@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: 'AppleSDGothicNeo';
+  src: local('AppleSDGothicNeo'), url('fonts/AppleSDGothicNeoR00-01.otf') format('opentype');
+}
+
 html, body, #root, #App, #main {
   height: 100%;
 }
