@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Map.css';
-import MarkerPosition from './Marker.json';
+import MarkerPosition from './data_analysis/point.json';
+import GridPosition from './data_analysis/grid.json';
 
 //
 const { kakao } = window;
