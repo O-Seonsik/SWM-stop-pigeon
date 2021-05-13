@@ -4,7 +4,7 @@ import SearchListEmptyImage from "data/images/search/illustrator_with_text.png";
 
 const SearchList = (props) => {
   const showList = () => {
-    if (props.placeList !== undefined) {
+    if (props.placeList !== undefined && props.placeList.length !== 0) {
       return (
         <div className="search-list">
           {props.placeList.map((place, index) => {
@@ -17,6 +17,7 @@ const SearchList = (props) => {
                 phone={place.phone}
                 x={place.x}
                 y={place.y}
+                setXY={props.setXY}
               />
             );
           })}

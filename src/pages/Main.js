@@ -1,4 +1,4 @@
-import React, { useRef, useState} from 'react';
+import React, { useState} from 'react';
 import Map from 'components/Map';
 import SearchPanel from 'components/search/SearchPanel';
 import FilterGroup from "../components/filter/FilterGroup";
@@ -11,7 +11,14 @@ class Main extends React.Component  {
             keyword: '',
             searchResult: [],
             is_searching: false,
+            moveCenter: false,
+            x: 37.503825,
+            y: 127.044652,
         }
+    }
+
+    setXY = (newX, newY) => {
+        this.setState({x: newX, y: newY});
     }
 
     setKeyword = (new_keyword) => {
@@ -30,13 +37,12 @@ class Main extends React.Component  {
         }
     }
 
-
     render() {
+        console.log(this.state);
         return (
             <div id="main">
-                <button>메인의 자식을 불러오자</button>
-                <SearchPanel setKeyword={this.setKeyword} searchResult={this.state.searchResult} />
-                <Map keyword={this.state.keyword} setSearchResult={this.setSearchResult}/>
+                <SearchPanel setXY={this.setXY} setKeyword={this.setKeyword} searchResult={this.state.searchResult} />
+                <Map x={this.state.x} y={this.state.y} keyword={this.state.keyword} setSearchResult={this.setSearchResult}/>
                 <FilterGroup />
                 <ActionGroup />
             </div>

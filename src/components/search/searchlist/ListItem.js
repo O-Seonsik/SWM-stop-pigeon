@@ -2,7 +2,8 @@ import "./ListItem.css";
 
 const ListItem = (props) => {
   const moveMap = () => {
-    console.log(props.name);
+      props.setXY(props.x, props.y);
+    // console.log(props.name);
   }
 
   return (

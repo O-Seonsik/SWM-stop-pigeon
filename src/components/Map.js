@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
+import React, { useState, useEffect } from "react";
 import './Map.css';
 import MarkerPosition from '../data_analysis/point.json';
 import GridPosition from '../data_analysis/grid.json';
@@ -8,6 +8,7 @@ const { kakao } = window;
 
 const Map = (props) => {
   let map;
+
   useEffect(() => {
     // 지도를 담을 영역의 DOM 레퍼런스
     const container = document.getElementById("map");
@@ -19,6 +20,8 @@ const Map = (props) => {
 
     // 지도 객체를 state로 관리
     map = new kakao.maps.Map(container, options);
+
+    // setCenter();
 
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
@@ -37,28 +40,14 @@ const Map = (props) => {
   }, []);
 
 
-  const panTo = forwardRef((props, ref) => {
-    useImperativeHandle(ref, () => ({
-      move() {
-        console.log("나는 메인의 자식이다");
-        // const moveLatLon = new kakao.maps.LatLng(y, x);
-        //
-        // // 지도 중심을 부드럽게 이동시킵니다
-        // // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-        // map.setCenter(moveLatLon)
-      }
-    }))
-  })
-
   // 검색
   // 장소 검색 객체를 생성합니다
   const ps = new kakao.maps.services.Places();
   // 키워드로 장소를 검색합니다
   ps.keywordSearch(props.keyword, placesSearchCB);
   // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-  function placesSearchCB(data, status, pagination) {
+  function placesSearchCB(data, status) {
     if (status === kakao.maps.services.Status.OK) {
-
       const searchResult = [];
 
       for(let i = 0; i < data.length; i++){
@@ -237,16 +226,28 @@ const Map = (props) => {
   function zoomOut(){
     map.setLevel(map.getLevel() + 1);
   }
+  const setCenter = () => {
+    alert(props.x + "\n" + props.y);
+    // 이동할 위도 경도 위치를 생성합니다
+    // const moveLatLon = new kakao.maps.LatLng(props.x, props.y);
+
+    // 지도 중심을 이동 시킵니다
+    console.log(props.x, props.y);
+    console.log(map);
+    // map.setCenter(moveLatLon);
+  }
+
   return (
       <div id="map-container">
         <div id="map"></div>
         <button className="test" onClick={markerTest}>add marker test</button>
+        <button className="test" onClick={setCenter}>test</button>
         <button className="test" onClick={showMarkers}>show marker test</button>
         <button className="test" onClick={hideMarkers}>hide marker test</button>
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
         <button className="test" onClick={hideSquares}>hide square test</button>
-        <div class="custom_zoomcontrol radius_border">
+        <div className="custom_zoomcontrol radius_border">
           <span onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
           <span onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
         </div>

@@ -25,7 +25,7 @@ const SearchPanel = (props) => {
   return (
     <div id="search-panel">
       <Header setKeyword={props.setKeyword}/>
-      <SearchList placeList={props.searchResult} />
+      <SearchList setXY={props.setXY} placeList={props.searchResult} />
       <Footer />
     </div>
   );
