@@ -1,12 +1,12 @@
-import LogoWord from 'data/images/search/logo_word.svg'
+import LogoWord from 'data/images/search/logo_word.png'
 import './Title.css'
 
 function Title() {
   return (
     <div className="search-title">
-      <div className="logo">
+      <a className="logo" href=".">
         <img src={LogoWord} alt="logo-word" />
-      </div>
+      </a>
     </div>
   );
 }

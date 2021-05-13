@@ -1,9 +1,10 @@
+import InformationButton from "./InformationButton";
 import './Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <div className="footer">
-      <button className="footer-question-button">질문</button>
+      <InformationButton />
     </div>
   );
 }
