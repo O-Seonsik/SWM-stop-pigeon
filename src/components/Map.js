@@ -222,7 +222,7 @@ const Map = () => {
   }
 
   return (
-      <div>
+      <div id="map-container">
         <div id="map"></div>
         <button onClick={markerTest}>add marker test</button>
         <button onClick={showMarkers}>show marker test</button>
