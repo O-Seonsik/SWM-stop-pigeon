@@ -33,8 +33,9 @@ def get_distance(x1, y1, x2, y2):
 
 for i in range(100):
     for j in range(200):
-        target_x = start_x + (dx * i) + (dx / 2)
-        target_y = start_y + (dy * j) + (dy / 2)
+        target_x = start_x + (dx * j) + (dx / 2)
+        target_y = start_y + (dy * i) + (dy / 2)
+        print(target_x, target_y)
 
         for x, y in zip(school['x'], school['y']):
             d = get_distance(target_x, target_y, x, y)
