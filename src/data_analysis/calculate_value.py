@@ -24,7 +24,7 @@ with open('park.json') as json_file:
 
 
 def value_function(distance, weight):
-    return 1 / (200 * distance + 1 / weight) ** 3
+    return 1 / (192.9512 * distance + 1 / weight) ** 3.124
 
 
 def get_distance(x1, y1, x2, y2):
@@ -38,15 +38,15 @@ for i in range(yn):
 
         for x, y in zip(school['x'], school['y']):
             d = get_distance(target_x, target_y, x, y)
-            value[i][j] += value_function(d, 0.2)
+            value[i][j] += value_function(d, 0.2758)
 
         for x, y in zip(subway['x'], subway['y']):
             d = get_distance(target_x, target_y, x, y)
-            value[i][j] += value_function(d, 1)
+            value[i][j] += value_function(d, 0.8677)
 
         for x, y in zip(park['x'], park['y']):
             d = get_distance(target_x, target_y, x, y)
-            value[i][j] += value_function(d, 1)
+            value[i][j] += value_function(d, 1.123)
 
 max_value, min_value = np.max(value), np.min(value)
 
