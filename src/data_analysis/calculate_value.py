@@ -60,11 +60,11 @@ value_dict = {"data": []}
 
 for i in range(100):
     for j in range(200):
-        x1 = start_x + (dx * i)
-        y1 = start_y + (dy * j)
+        x1 = start_x + (dx * j)
+        y1 = start_y + (dy * i)
 
-        x2 = start_x + (dx * (i + 1))
-        y2 = start_y + (dy * (j + 1))
+        x2 = start_x + (dx * (j + 1))
+        y2 = start_y + (dy * (i + 1))
         value_dict['data'].append({"lng1": x1, "lat1": y1, "lng2": x2, "lat2": y2, "value": value[i][j]})
 
 with open('grid.json', 'w') as fp:
