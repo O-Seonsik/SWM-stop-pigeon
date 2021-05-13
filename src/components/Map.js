@@ -25,15 +25,17 @@ const Map = () => {
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
       var center_position = map.getCenter();
+      console.log(center_position);
       squareTestLevel(level, center_position['Ma'], center_position['La']);
       //level 1: 6, 3
       //level 2: 8, 4
       //level 3: 16, 8
       //level 4: 28, 14
     });
-    kakao.maps.event.addListener(map, 'dragend', function() {   
+    kakao.maps.event.addListener(map, 'dragend', function() {
       var level = map.getLevel();
       var center_position = map.getCenter();
+      console.log(center_position);
       squareTestLevel(level, center_position['Ma'], center_position['La']);
     });
   }, []);
@@ -70,10 +72,13 @@ const Map = () => {
       lat_max = c_lat + lat_half * 0.002;
       lng_min = c_lng - lng_half * 0.002;
       lng_max = c_lng + lng_half * 0.002;
+      console.log(lat_min, lng_min, gridData[0]['lat1'], gridData[0]['lng1']);
       hideSquares();
+      console.log('checking');
       squares = [];
       for(let i = 0; gridData[i]; i++){
         if(gridData[i]['lat1'] <= lat_max && gridData[i]['lat1'] >= lat_min && gridData[i]['lng1'] <= lng_max && gridData[i]['lng1'] >= lng_min) {
+          console.log('ok');
           addSquare({
             lat1: gridData[i]['lat1'],
             lng1: gridData[i]['lng1'],
@@ -82,6 +87,7 @@ const Map = () => {
           }, gridData[i]['value']*0.7);
         }
       }
+      console.log('fin');
     }
     else{
       hideSquares();
@@ -174,6 +180,7 @@ const Map = () => {
   var squares = [];
 
   const addSquare = (grid, fillvalue) => {
+    console.log(fillvalue);
     const sw = new kakao.maps.LatLng(grid.lat1, grid.lng1), // 사각형 영역의 남서쪽 좌표
         ne = new kakao.maps.LatLng(grid.lat2,  grid.lng2); // 사각형 영역의 북동쪽 좌표
 

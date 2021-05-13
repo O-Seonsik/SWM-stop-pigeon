@@ -3,11 +3,11 @@ import SearchBar from './SearchBar';
 import FoldButton from "./FoldButton";
 import './Header.css';
 
-function Header() {
+function Header(props) {
   return (
     <div className='search-header'>
       <Title />
-      <SearchBar />
+      <SearchBar setKeyword={props.setKeyword} />
       <FoldButton />
     </div>
   )

@@ -1,11 +1,16 @@
+import React, { useState } from 'react';
 import "./SearchBar.css";
 
-function search() {
-  let input = document.getElementById('input-search');
-  console.log(input.value);
-}
 
-function SearchBar() {
+
+const SearchBar = (props) => {
+    const search = () => {
+        let input = document.getElementById('input-search');
+        props.setKeyword(input.value)
+        alert("!");
+        console.log(input.value);
+    }
+
   return (
     <div className="search-bar-wrap">
       <div className="input-box">

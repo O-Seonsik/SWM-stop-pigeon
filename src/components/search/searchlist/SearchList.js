@@ -1,18 +1,6 @@
 import ListItem from "./ListItem";
 import "./SearchList.css";
 
-/*
-props = {
-  placeList = [
-    {
-      name: string;
-      address: string;
-      phone: string;
-    }, ...
-  ]
-}
- */
-
 function SearchList(props) {
   return (
     <div className="search-list">

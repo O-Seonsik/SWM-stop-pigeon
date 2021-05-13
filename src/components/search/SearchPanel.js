@@ -46,10 +46,10 @@ const placeList = [
   },
 ];
 
-function SearchPanel() {
+function SearchPanel(props) {
   return (
     <div id="search-panel">
-      <Header />
+      <Header setKeyword={props.setKeyword}/>
       <SearchList placeList={placeList} />
       <Footer />
     </div>
