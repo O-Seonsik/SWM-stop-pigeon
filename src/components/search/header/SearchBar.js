@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cancel from 'data/images/search/cancel.png';
 import "./SearchBar.css";
 
 const SearchBar = (props) => {
@@ -18,17 +19,23 @@ const SearchBar = (props) => {
     }
   }
 
+  function cancelClick() {
+    var input = document.getElementById('input-search');
+    input.value = '';
+  }
+
   return (
     <div className="search-bar-wrap">
       <div className="input-box">
+        <button className="search-icon" onClick={search} />
         <input
           type="text"
           id="input-search"
           placeholder="장소, 주소 검색"
           onKeyPress={onKeyPress}
         />
-        <button className="search-icon" onClick={search}>
-          검색
+        <button className="search-cancel">
+          <img src={cancel} onClick={cancelClick}/>
         </button>
       </div>
     </div>

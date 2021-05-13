@@ -10,3 +10,7 @@
   color:white;
   font-weight: 600;
 }
+
+.fold-button:hover {
+  cursor: pointer;
+}

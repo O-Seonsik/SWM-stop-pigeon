@@ -12,13 +12,12 @@
 }
 
 #input-search {
-  width: 280px;
+  width: 270px;
   height: 21px;
-  margin: 13px 20px 16px 20px;
+  margin: 15px 0px 16px 0px;
   padding: 0;
   font-size: 16px;
   font-weight: 400;
-  float: left;
   border: none;
 }
 
@@ -39,13 +38,21 @@
   overflow: hidden;
   text-indent: -9999px;
   border: none;
-  margin-top: 5px;
-  
+  margin-top: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
   background: url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/ico_search.png) no-repeat;
-  background-position: 0 -120px;
+  background-position: -40px -120px;
+  float: left;
 }
 
-.search-icon:hover {
-  background-position: -40px -120px;
+.search-cancel {
+  border: none;
+  background: none;
+}
+
+.search-cancel img {
+  height: 10px;
+  width: 10px;
   cursor: pointer;
 }
