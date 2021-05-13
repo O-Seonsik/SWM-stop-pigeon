@@ -233,7 +233,7 @@ const Map = () => {
         <button className="test" onClick={hideMarkers}>hide marker test</button>
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
-        <button className="test" onClick={hideSquares}>hide square test</button>
+      <button className="test" onClick={hideSquares}>hide square test</button>
       </div>
   );
 };
