@@ -6,4 +6,13 @@
 
 .filter-item {
   margin: 30px 0 0 24px;
+
+}
+
+.filter-item input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+.filter-item div {
+  align-items: center;
 }
