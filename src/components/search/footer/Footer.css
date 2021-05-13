@@ -5,15 +5,3 @@
   position: absolute;
   bottom: 0;
 }
-
-.footer-question-button {
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 48px;
-  right: 24px;
-  text-indent: -9999px;
-  overflow: hidden;
-  background: url(data/images/search/icon_question.svg) no-repeat;
-  border: none;
-}
