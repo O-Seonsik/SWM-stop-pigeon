@@ -2,18 +2,6 @@ import ListItem from "./ListItem";
 import "./SearchList.css";
 import SearchListEmptyImage from "data/images/search/illustrator_with_text.png";
 
-/*
-props = {
-  placeList = [
-    {
-      name: string;
-      address: string;
-      phone: string;
-    }, ...
-  ]
-}
- */
-
 const SearchList = (props) => {
   const showList = () => {
     if (props.placeList !== undefined) {

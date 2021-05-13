@@ -1,0 +1,12 @@
+#filter-group {
+  width: 280px;
+  height: 136px;
+  margin: 24px 24px 0 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}

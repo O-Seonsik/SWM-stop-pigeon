@@ -9,9 +9,9 @@ data = df[['�浵', '����']].to_numpy()
 schools = {'x': [], 'y': []}
 
 for x, y in data:
-    if x != np.nan or y != np.nan:
-        schools['x'].append(x)
-        schools['y'].append(y)
+    schools['x'].append(x)
+    schools['y'].append(y)
 
 with open('school.json', 'w') as fp:
     json.dump(schools, fp)
+f

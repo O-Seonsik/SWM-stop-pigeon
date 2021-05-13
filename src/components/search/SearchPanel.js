@@ -24,7 +24,7 @@ const placeList = [
 const SearchPanel = () => {
   return (
     <div id="search-panel">
-      <Header />
+      <Header setKeyword={props.setKeyword}/>
       <SearchList placeList={placeList} />
       <Footer />
     </div>

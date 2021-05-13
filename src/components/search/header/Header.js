@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className='search-header'>
       <Title />
-      <SearchBar />
+      <SearchBar setKeyword={props.setKeyword} />
       <FoldButton />
     </div>
   )
