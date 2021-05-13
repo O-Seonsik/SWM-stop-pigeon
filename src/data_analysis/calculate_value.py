@@ -24,7 +24,7 @@ with open('park.json') as json_file:
 
 
 def value_function(distance, weight):
-    return 1 / (200 * distance + 1 / weight)
+    return 1 / (200 * distance + 1 / weight) ** 3
 
 
 def get_distance(x1, y1, x2, y2):
