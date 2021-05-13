@@ -9,6 +9,8 @@ function ListItem(props) {
           <p>{props.name}</p>
           <p>{props.address}</p>
           <p>{props.phone}</p>
+            <p>{props.x}</p>
+            <p>{props.y}</p>
         </div>
       </div>
     </div>
