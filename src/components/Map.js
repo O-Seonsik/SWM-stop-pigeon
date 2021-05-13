@@ -6,7 +6,7 @@ import GridPosition from '../data_analysis/grid.json';
 //
 const { kakao } = window;
 
-const Map = () => {
+const Map = (props) => {
   let map;
   useEffect(() => {
     // 지도를 담을 영역의 DOM 레퍼런스
@@ -89,25 +89,23 @@ const Map = () => {
   const ps = new kakao.maps.services.Places();
 
   // 키워드로 장소를 검색합니다
-  ps.keywordSearch("선릉역 맛집", placesSearchCB);
+  ps.keywordSearch(props.keyword, placesSearchCB);
 
   // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
   function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
-      // const
-      let search_data;
 
-      console.log(data)
-      console.log(status)
-      console.log(pagination)
+      const searchResult = [];
 
-      // 정상적으로 검색이 완료됐으면
-      // 검색 목록과 마커를 표출합니다
-      // displayPlaces(data);
+      for(let i = 0; i < data.length; i++){
+        searchResult.push({
+          name: data[i]['place_name'],
+          address: data[i]['address_name'],
+          phone: data[i]['phone']
+        })
+      }
 
-      // 페이지 번호를 표출합니다
-      // displayPagination(pagination);
-
+      props.setSearchResult(searchResult);
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
       alert('검색 결과가 존재하지 않습니다.');
@@ -120,10 +118,6 @@ const Map = () => {
 
     }
   }
-
-  // 검색
-
-
 
   const markers = [];
 

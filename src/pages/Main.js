@@ -7,7 +7,7 @@ import ActionGroup from "../components/action/ActionGroup";
 const Main = () => {
     const [keyword, setKeyword] = useState();
     const [searchResult, setSearchResult] = useState();
-    console.log(keyword);
+    console.log(searchResult);
     return (
         <div id="main">
             <SearchPanel setKeyword={setKeyword} searchResult={searchResult} />
