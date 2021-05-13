@@ -60,12 +60,9 @@ const Map = () => {
     }
     else if(level == 5) {
       lat_half=10;
-      lng_half = 20;
+      lng_half = 22;
     }
-    else{
-      return;
-    }
-    if(level) {
+    if(level<=5) {
       lat_min = c_lat - lat_half * 0.002;
       lat_max = c_lat + lat_half * 0.002;
       lng_min = c_lng - lng_half * 0.002;
