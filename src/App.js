@@ -9,6 +9,7 @@ function App() {
         <Map/>
         <FilterGroup />
         <ActionGroup />
+        <script src='./global.js'></script>
       </div>
   );
 }
