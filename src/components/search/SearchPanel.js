@@ -22,10 +22,11 @@ const placeList = [
 ];
 
 const SearchPanel = (props) => {
+  console.log(props.searchResult)
   return (
     <div id="search-panel">
-      <Header setKeyword={props.setKeyword}/>
-      <SearchList setXY={props.setXY} placeList={props.searchResult} />
+      <Header setKeyword={props.setKeyword} isSearch={props.isSearch} setIsSearch={props.setIsSearch}/>
+      <SearchList setCenter={props.setCenter} placeList={props.searchResult} />
       <Footer />
     </div>
   );

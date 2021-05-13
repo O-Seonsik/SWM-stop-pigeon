@@ -17,7 +17,7 @@ const SearchList = (props) => {
                 phone={place.phone}
                 x={place.x}
                 y={place.y}
-                setXY={props.setXY}
+                setCenter={props.setCenter}
               />
             );
           })}

@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import './Map.css';
 import MarkerPosition from '../data_analysis/point.json';
 import GridPosition from '../data_analysis/grid.json';
+
+import marker_pigeon_green from 'data/images/marker/marker_pigeon_green.svg';
+import marker_pigeon_lightgreen from 'data/images/marker/marker_pigeon_lightgreen.svg';
+import marker_pigeon_yellow from 'data/images/marker/marker_pigeon_yellow.svg';
+import marker_pigeon_orange from 'data/images/marker/marker_pigeon_orange.svg';
+import marker_pigeon_red from 'data/images/marker/marker_pigeon_red.svg';
 
 //
 const { kakao } = window;
 
 const Map = (props) => {
   let map;
-
   useEffect(() => {
     // 지도를 담을 영역의 DOM 레퍼런스
     const container = document.getElementById("map");
@@ -20,8 +25,6 @@ const Map = (props) => {
 
     // 지도 객체를 state로 관리
     map = new kakao.maps.Map(container, options);
-
-    // setCenter();
 
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
@@ -40,14 +43,28 @@ const Map = (props) => {
   }, []);
 
 
+  const panTo = forwardRef((props, ref) => {
+    useImperativeHandle(ref, () => ({
+      move() {
+        console.log("나는 메인의 자식이다");
+        // const moveLatLon = new kakao.maps.LatLng(y, x);
+        //
+        // // 지도 중심을 부드럽게 이동시킵니다
+        // // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+        // map.setCenter(moveLatLon)
+      }
+    }))
+  })
+
   // 검색
   // 장소 검색 객체를 생성합니다
   const ps = new kakao.maps.services.Places();
   // 키워드로 장소를 검색합니다
   ps.keywordSearch(props.keyword, placesSearchCB);
   // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-  function placesSearchCB(data, status) {
+  function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
+
       const searchResult = [];
 
       for(let i = 0; i < data.length; i++){
@@ -123,11 +140,20 @@ const Map = (props) => {
 
   const markers = [];
 
-  const addMarker = ( lat, lng ) => {
+  const addMarker = ( lat, lng, value ) => {
     // 마커를 생성합니다
+
+    var imageSrc = markerSrc(value), // 마커이미지의 주소입니다
+        imageSize = new kakao.maps.Size(30, 45), // 마커이미지의 크기입니다
+        imageOption = { offset: new kakao.maps.Point(15, 45) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
     const markerPosition = new kakao.maps.LatLng(lat, lng);
     const marker = new kakao.maps.Marker({
-      position: markerPosition
+      position: markerPosition,
+      image: markerImage,
     });
 
     // 마커가 지도 위에 표시되도록 설정합니다
@@ -159,8 +185,24 @@ const Map = (props) => {
     let markerData = JSON.stringify(MarkerPosition);
     markerData = JSON.parse(markerData)['data'];
     for(let i = 0; markerData[i]; i++) {
-      addMarker(markerData[i]['x'], markerData[i]['y']);
+      addMarker(markerData[i]['x'], markerData[i]['y'], markerData[i]['value']);
     }
+  }
+
+  function markerSrc(value) {
+    var src = [
+      marker_pigeon_green,
+      marker_pigeon_lightgreen,
+      marker_pigeon_yellow,
+      marker_pigeon_orange,
+      marker_pigeon_red,
+    ];
+
+    return src[density(value)];
+  }
+
+  function density(value) {
+    return Math.floor(value / 2 * 10);
   }
 
   let squares = [];
@@ -226,30 +268,18 @@ const Map = (props) => {
   function zoomOut(){
     map.setLevel(map.getLevel() + 1);
   }
-  const setCenter = () => {
-    alert(props.x + "\n" + props.y);
-    // 이동할 위도 경도 위치를 생성합니다
-    // const moveLatLon = new kakao.maps.LatLng(props.x, props.y);
-
-    // 지도 중심을 이동 시킵니다
-    console.log(props.x, props.y);
-    console.log(map);
-    // map.setCenter(moveLatLon);
-  }
-
   return (
       <div id="map-container">
         <div id="map"></div>
         <button className="test" onClick={markerTest}>add marker test</button>
-        <button className="test" onClick={setCenter}>test</button>
         <button className="test" onClick={showMarkers}>show marker test</button>
         <button className="test" onClick={hideMarkers}>hide marker test</button>
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
         <button className="test" onClick={hideSquares}>hide square test</button>
-        <div className="custom_zoomcontrol radius_border">
-          <span onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
-          <span onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
+        <div className="custom_zoomcontrol">
+          <span className="zoomInBtn" onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
+          <span className="zoomOutBtn" onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
         </div>
       </div>
   );
