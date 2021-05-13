@@ -17,7 +17,7 @@
     <td align="center" width="80px">직책</td><td align="center" width="100px">이름</td><td align="center" width="300px">담당</td><td align="center" width="120px">Github</td><td align="center">Contact</td>
   </tr>
   <tr>
-    <td align="center">팀장</td><td align="center">한일석</td><td align="center">데이터분석, 모델 생성</td><td><a href="https://github.com/x2everr"><img src="http://img.shields.io/badge/x2ever-655ced?style=social&logo=github"/></td><td><a href="mailto:x2ever.han@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=x2ever.han@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+    <td align="center">팀장</td><td align="center">한일석</td><td align="center">데이터분석, 모델 생성</td><td><a href="https://github.com/x2ever"><img src="http://img.shields.io/badge/x2ever-655ced?style=social&logo=github"/></td><td><a href="mailto:x2ever.han@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=x2ever.han@gmail.com&color=green&style=flat-square&logo=gmail"></td>
   </tr>
   <tr>
     <td align="center">팀원</td><td align="center">김정훈</td><td align="center">kakaomaps, 문서화</td><td><a href="https://github.com/LiiNen"><img src="http://img.shields.io/badge/LiiNen-655ced?style=social&logo=github"/></td><td><a href="mailto:kjeonghoon065@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=kjeonghoon065@gmail.com&color=green&style=flat-square&logo=gmail"></td>
