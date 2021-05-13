@@ -19,9 +19,7 @@ const Map = () => {
 
     // 지도 객체를 state로 관리
     map = new kakao.maps.Map(container, options);
-
-    const zoom_controller = new kakao.maps.ZoomControl();
-    map.addControl(zoom_controller, kakao.maps.ControlPosition.RIGHT);
+    
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
       var center_position = map.getCenter();
@@ -121,6 +119,7 @@ const Map = () => {
     }
   }
 
+  
   // 검색
 
 
@@ -224,7 +223,13 @@ const Map = () => {
       }, 0.5)
     }
   }
-
+  
+  function zoomIn(){
+    map.setLevel(map.getLevel() - 1);
+  }
+  function zoomOut(){
+    map.setLevel(map.getLevel() + 1);
+  }
   return (
       <div id="map-container">
         <div id="map"></div>
@@ -234,6 +239,10 @@ const Map = () => {
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
         <button className="test" onClick={hideSquares}>hide square test</button>
+        <div class="custom_zoomcontrol radius_border"> 
+          <span onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>  
+          <span onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
+        </div>
       </div>
   );
 };
