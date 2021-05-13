@@ -1,0 +1,10 @@
+.search-panel {
+  width:400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 3px 0px 10px 0px;
+
+  position: absolute;
+  transition: transform 0.5s;
+  transform: translateX(0);
+}
