@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useRef, useState} from 'react';
 import Map from 'components/Map';
 import SearchPanel from 'components/search/SearchPanel';
 import FilterGroup from "../components/filter/FilterGroup";
 import ActionGroup from "../components/action/ActionGroup";
 
 class Main extends React.Component  {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -31,9 +30,11 @@ class Main extends React.Component  {
         }
     }
 
+
     render() {
         return (
             <div id="main">
+                <button>메인의 자식을 불러오자</button>
                 <SearchPanel setKeyword={this.setKeyword} searchResult={this.state.searchResult} />
                 <Map keyword={this.state.keyword} setSearchResult={this.setSearchResult}/>
                 <FilterGroup />
