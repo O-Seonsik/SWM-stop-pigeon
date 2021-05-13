@@ -57,7 +57,7 @@
 	│	┝ KaKaoMap API
 	│	┝ Grid or Marker View
 	│	└ Search
-	└data analysis/
+	└Data analysis/
 		┝ Data pre-processing
 		┝ Modeling
 		┝ Machine Learning (SVM)
