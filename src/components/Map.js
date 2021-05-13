@@ -32,6 +32,12 @@ const Map = () => {
       //level 3: 16, 8
       //level 4: 28, 14
     });
+    kakao.maps.event.addListener(map, 'dragend', function() {   
+      var level = map.getLevel();
+      var center_position = map.getCenter();
+      console.log(center_position);
+      squareTestLevel(level, center_position['Ma'], center_position['La']);
+    });
   }, []);
 
   const squareTestLevel = (level, c_lat, c_lng) => {
@@ -54,7 +60,15 @@ const Map = () => {
       lat_half = 7;
       lng_half = 14;
     }
-    if(level <= 4) {
+    else if(level == 5) {
+      lat_half=10;
+      lng_half = 20;
+    }
+    else{
+      lat_half=15;
+      lng_half=30;
+    }
+    if(level) {
       lat_min = c_lat - lat_half * 0.002;
       lat_max = c_lat + lat_half * 0.002;
       lng_min = c_lng - lng_half * 0.002;
@@ -71,7 +85,7 @@ const Map = () => {
             lng1: gridData[i]['lng1'],
             lat2: gridData[i]['lat2'],
             lng2: gridData[i]['lng2']
-          })
+          }, gridData[i]['value']*0.7);
         }
       }
       console.log('fin');
@@ -166,7 +180,8 @@ const Map = () => {
 
   var squares = [];
 
-  const addSquare = (grid) => {
+  const addSquare = (grid, fillvalue) => {
+    console.log(fillvalue);
     const sw = new kakao.maps.LatLng(grid.lat1, grid.lng1), // 사각형 영역의 남서쪽 좌표
         ne = new kakao.maps.LatLng(grid.lat2,  grid.lng2); // 사각형 영역의 북동쪽 좌표
 
@@ -179,7 +194,7 @@ const Map = () => {
       bounds: rectangleBounds, // 그려질 사각형의 영역정보입니다
       strokeWeight: 1, // 선의 두께입니다
       fillColor: '#FF0000', // 채우기 색깔입니다
-      fillOpacity: 0.5 // 채우기 불투명도 입니다
+      fillOpacity: fillvalue // 채우기 불투명도 입니다
     });
 
     // 지도에 사각형을 표시합니다
@@ -217,7 +232,7 @@ const Map = () => {
         lng1: gridData[i]['lng1'],
         lat2: gridData[i]['lat2'],
         lng2: gridData[i]['lng2']
-      })
+      }, 0.5)
     }
   }
 
