@@ -1,4 +1,4 @@
-<br><p align="center"><img src="/readmeImg/logo_word_background.png" width="50%"></p>
+<br><p align="center"><img src="/readmeImg/stop_with_logo.gif"></p>
 
 <h2 align="center">저 새는 해로운 새다</h2>
 <h3 align="center">유해야생동물 집비둘기로부터 살아남기 위한 전쟁</h3>
