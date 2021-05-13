@@ -1,0 +1,16 @@
+.search-list {
+  height: calc(100% - 96px - 250px);
+  overflow: auto;
+}
+
+.search-list::-webkit-scrollbar {
+  width: 5px;
+}
+.search-list::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 5px;
+}
+.search-list::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
