@@ -43,12 +43,12 @@ const Map = () => {
     gridData = JSON.parse(gridData)['data'];
     var lat_half, lng_half, lat_min, lat_max, lng_min, lng_max;
     if(level == 1){
-      lat_half = 2;
-      lng_half = 3;
+      lat_half = 3;
+      lng_half = 4;
     }
     else if(level == 2) {
-      lat_half = 2;
-      lng_half = 4;
+      lat_half = 3;
+      lng_half = 6;
     }
     else if(level == 3) {
       lat_half = 4;
@@ -63,8 +63,7 @@ const Map = () => {
       lng_half = 20;
     }
     else{
-      lat_half=15;
-      lng_half=30;
+      return;
     }
     if(level) {
       lat_min = c_lat - lat_half * 0.002;
