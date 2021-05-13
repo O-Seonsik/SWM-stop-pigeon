@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import './Map.css';
 import MarkerPosition from '../data_analysis/point.json';
 import GridPosition from '../data_analysis/grid.json';
@@ -6,7 +6,7 @@ import GridPosition from '../data_analysis/grid.json';
 //
 const { kakao } = window;
 
-const Map = () => {
+const Map = (props) => {
   let map;
   useEffect(() => {
     // 지도를 담을 영역의 DOM 레퍼런스
@@ -35,6 +35,20 @@ const Map = () => {
       squareTestLevel(level, center_position['Ma'], center_position['La']);
     });
   }, []);
+
+
+  const panTo = forwardRef((props, ref) => {
+    useImperativeHandle(ref, () => ({
+      move() {
+        console.log("나는 메인의 자식이다");
+        // const moveLatLon = new kakao.maps.LatLng(y, x);
+        //
+        // // 지도 중심을 부드럽게 이동시킵니다
+        // // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+        // map.setCenter(moveLatLon)
+      }
+    }))
+  })
 
   // 검색
   // 장소 검색 객체를 생성합니다

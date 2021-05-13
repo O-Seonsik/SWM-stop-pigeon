@@ -21,7 +21,7 @@ const placeList = [
   },
 ];
 
-const SearchPanel = () => {
+const SearchPanel = (props) => {
   return (
     <div id="search-panel">
       <Header setKeyword={props.setKeyword}/>

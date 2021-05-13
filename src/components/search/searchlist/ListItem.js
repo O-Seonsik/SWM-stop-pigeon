@@ -14,9 +14,9 @@ const ListItem = (props) => {
       </div>
       <div className="list-item-info">
         <div>
-          <p>{props.name}</p>
-          <p>{props.address}</p>
-          <p>{props.phone}</p>
+            <div className="info-name" onClick={moveMap}>{props.name}</div>
+            <div className="info-address">{props.address}</div>
+            <div className="info-phone">{props.phone}</div>
         </div>
       </div>
     </div>
