@@ -3,10 +3,15 @@ import "./SearchBar.css";
 
 const SearchBar = (props) => {
   const search = () => {
-      let input = document.getElementById('input-search');
-      props.setKeyword(input.value)
+    if(props.isSearch){
+        // do nothing
+    }else{
+        let input = document.getElementById('input-search');
+        props.setKeyword(input.value)
+        props.setIsSearch(true);
+    }
   }
-  
+
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
       search();

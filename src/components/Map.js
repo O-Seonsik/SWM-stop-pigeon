@@ -214,6 +214,22 @@ const Map = (props) => {
     }
   }
 
+  function markerSrc(value) {
+    var src = [
+      marker_pigeon_green,
+      marker_pigeon_lightgreen,
+      marker_pigeon_yellow,
+      marker_pigeon_orange,
+      marker_pigeon_red,
+    ];
+
+    return src[density(value)];
+  }
+
+  function density(value) {
+    return Math.floor(value / 2 * 10);
+  }
+
   let squares = [];
 
   const addSquare = (grid, fillvalue) => {

@@ -2,7 +2,8 @@ import "./ListItem.css";
 
 const ListItem = (props) => {
   const moveMap = () => {
-    console.log(props.name);
+      props.setCenter(props.y, props.x);
+    // console.log(props.name);
   }
 
   return (
