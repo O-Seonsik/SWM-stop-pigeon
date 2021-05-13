@@ -22,6 +22,8 @@ const Map = () => {
 
 
 
+  const markers = [];
+
   const addMarker = ( lat, lng ) => {
     // 마커를 생성합니다
     const markerPosition = new kakao.maps.LatLng(lat, lng);
@@ -31,6 +33,26 @@ const Map = () => {
 
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
+
+    // 생성된 마커를 배열에 추가
+    markers.push(marker);
+  }
+
+  // 마커 설정하기
+  const setMarkers = (map) => {
+    for(let i = 0; i < markers.length; i++){
+      markers[i].setMap(map);
+    }
+  }
+
+  // 마커를 보이게
+  const showMarkers = () => {
+    setMarkers(map);
+  }
+
+  // 마커를 보이지 않게
+  const hideMarkers = () => {
+    setMarkers(null);
   }
 
   // 마커 테스트 코드
@@ -41,6 +63,9 @@ const Map = () => {
       addMarker(markerData[i]['x'], markerData[i]['y']);
     }
   }
+
+
+  const squares = [];
 
   const addSquare = (grid) => {
     const sw = new kakao.maps.LatLng(grid.lat1, grid.lng1), // 사각형 영역의 남서쪽 좌표
@@ -60,11 +85,32 @@ const Map = () => {
 
     // 지도에 사각형을 표시합니다
     rectangle.setMap(map);
+
+    // 생성된 사각형을 배열에 추가
+    squares.push(rectangle);
+  }
+
+
+  // 마커 설정하기
+  const setSquares = (map) => {
+    for(let i = 0; i < markers.length; i++){
+      squares[i].setMap(map);
+    }
+  }
+
+  // 그리드를 보이게
+  const showSquares = () => {
+    setSquares(map);
+  }
+
+  // 그리드를 보이지 않게
+  const hideSquares = () => {
+    setSquares(null);
   }
 
   // 그리드 테스트 코드
   const squareTest = () => {
-    for(let i = 1; i <= 10000; i++){
+    for(let i = 1; i <= 10; i++){
       let num = 0.0001*i;
       addSquare({
         lat1: 37.504293+num,
@@ -78,8 +124,12 @@ const Map = () => {
   return (
       <div>
         <div id="map"></div>
-        <button onClick={markerTest}>marker test</button>
-        <button onClick={squareTest}>square test</button>
+        <button onClick={markerTest}>add marker test</button>
+        <button onClick={showMarkers}>show marker test</button>
+        <button onClick={hideMarkers}>hide marker test</button>
+        <button onClick={squareTest}>add square test</button>
+        <button onClick={showSquares}>show square test</button>
+        <button onClick={hideSquares}>hide square test</button>
       </div>
   );
 };
