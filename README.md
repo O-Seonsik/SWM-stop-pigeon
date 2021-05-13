@@ -61,7 +61,7 @@
 		┝ Data pre-processing
 		┝ Modeling
 		┝ Machine Learning (SVM)
-		└ Export to data
+		└ Export to json data
 ## 프론트 디자인
 
 [XD 디자인 공유 링크](https://xd.adobe.com/view/64094a6d-bc36-406d-86d0-21dc797c8abf-315a/)
