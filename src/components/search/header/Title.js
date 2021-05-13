@@ -5,7 +5,10 @@ const Title = () => {
   return (
     <div className="search-title">
       <a className="logo" href=".">
-        <img src={LogoWord} alt="logo-word" />
+        <img
+          src={LogoWord}
+          alt="logo-word"
+        />
       </a>
     </div>
   );
