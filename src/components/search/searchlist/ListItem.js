@@ -19,6 +19,7 @@ const ListItem = (props) => {
             <div className="info-phone">{props.phone}</div>
         </div>
       </div>
+      <div className="list-item-divider"></div>
     </div>
   );
 }
