@@ -1,5 +1,6 @@
 import Title from './Title';
 import SearchBar from './SearchBar';
+import FoldButton from "./FoldButton";
 import './Header.css';
 
 function Header() {
@@ -7,6 +8,7 @@ function Header() {
     <div className='search-header'>
       <Title />
       <SearchBar />
+      <FoldButton />
     </div>
   )
 }

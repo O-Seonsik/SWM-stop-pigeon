@@ -48,7 +48,7 @@ const placeList = [
 
 function SearchPanel() {
   return (
-    <div className="search-panel">
+    <div id="search-panel">
       <Header />
       <SearchList placeList={placeList} />
       <Footer />
