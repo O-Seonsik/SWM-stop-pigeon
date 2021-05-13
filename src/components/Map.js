@@ -24,10 +24,62 @@ const Map = () => {
     map.addControl(zoom_controller, kakao.maps.ControlPosition.RIGHT);
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
-      console.log(level); // level 가져오기
+      var center_position = map.getCenter();
+      console.log(center_position);
+      squareTestLevel(level, center_position['Ma'], center_position['La']);
+      //level 1: 6, 3
+      //level 2: 8, 4
+      //level 3: 16, 8
+      //level 4: 28, 14
     });
   }, []);
 
+  const squareTestLevel = (level, c_lat, c_lng) => {
+    let gridData = JSON.stringify(GridPosition);
+    gridData = JSON.parse(gridData)['data'];
+    var lat_half, lng_half, lat_min, lat_max, lng_min, lng_max;
+    if(level == 1){
+      lat_half = 2;
+      lng_half = 3;
+    }
+    else if(level == 2) {
+      lat_half = 2;
+      lng_half = 4;
+    }
+    else if(level == 3) {
+      lat_half = 4;
+      lng_half = 8;
+    }
+    else if(level == 4) {
+      lat_half = 7;
+      lng_half = 14;
+    }
+    if(level <= 4) {
+      lat_min = c_lat - lat_half * 0.002;
+      lat_max = c_lat + lat_half * 0.002;
+      lng_min = c_lng - lng_half * 0.002;
+      lng_max = c_lng + lng_half * 0.002;
+      console.log(lat_min, lng_min, gridData[0]['lat1'], gridData[0]['lng1']);
+      hideSquares();
+      console.log('checking');
+      squares = [];
+      for(let i = 0; gridData[i]; i++){
+        if(gridData[i]['lat1'] <= lat_max && gridData[i]['lat1'] >= lat_min && gridData[i]['lng1'] <= lng_max && gridData[i]['lng1'] >= lng_min) {
+          console.log('ok');
+          addSquare({
+            lat1: gridData[i]['lat1'],
+            lng1: gridData[i]['lng1'],
+            lat2: gridData[i]['lat2'],
+            lng2: gridData[i]['lng2']
+          })
+        }
+      }
+      console.log('fin');
+    }
+    else{
+      hideSquares();
+    }
+  }
   // 검색
   // 장소 검색 객체를 생성합니다
   const ps = new kakao.maps.services.Places();
@@ -112,7 +164,7 @@ const Map = () => {
   }
 
 
-  const squares = [];
+  var squares = [];
 
   const addSquare = (grid) => {
     const sw = new kakao.maps.LatLng(grid.lat1, grid.lng1), // 사각형 영역의 남서쪽 좌표
@@ -156,7 +208,7 @@ const Map = () => {
   }
 
   // 그리드 테스트 코드
-  const squareTest = () => {
+  const squareTest = (level) => {
     let gridData = JSON.stringify(GridPosition);
     gridData = JSON.parse(gridData)['data'];
     for(let i = 1; gridData[i]; i++){
