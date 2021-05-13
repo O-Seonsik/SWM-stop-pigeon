@@ -1,23 +1,26 @@
-/*global kakao*/
-
-import React, {Component} from 'react';
+import React, { useEffect } from "react";
 import './Map.css';
 
-class Map extends Component {
-    componentDidMount(){    // 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드
-        let container = document.getElementById('map');
-        let options = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667),
-            level: 3
-        };
+//
+const { kakao } = window;
 
-        let map = new kakao.maps.Map(container, options);
-    }
-    render(){
-        return(
-            <div className="Map" id="map"></div>
-        );
-    }
-}
+const Map = () => {
+  useEffect(() => {
+    // 지도를 담을 영역의 DOM 레퍼런스
+    const container = document.getElementById("map");
+
+    const options = {
+      center: new kakao.maps.LatLng(37.50388, 127.044488),
+      level: 3,
+    };
+
+    // 지도 생성 및 객체 리턴
+    const map = new kakao.maps.Map(container, options);
+  }, []);
+
+  return (
+    <div id="map"></div>
+  );
+};
 
 export default Map;
