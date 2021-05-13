@@ -19,34 +19,9 @@ const placeList = [
     address: "구구구 비둘기로 99길",
     phone: "02-1234-5678",
   },
-  {
-    name: "비둘기공원",
-    address: "구구구 비둘기로 99길",
-    phone: "02-1234-5678",
-  },
-  {
-    name: "비둘기공원",
-    address: "구구구 비둘기로 99길",
-    phone: "02-1234-5678",
-  },
-  {
-    name: "비둘기공원",
-    address: "구구구 비둘기로 99길",
-    phone: "02-1234-5678",
-  },
-  {
-    name: "비둘기공원",
-    address: "구구구 비둘기로 99길",
-    phone: "02-1234-5678",
-  },
-  {
-    name: "비둘기공원",
-    address: "구구구 비둘기로 99길",
-    phone: "02-1234-5678",
-  },
 ];
 
-function SearchPanel(props) {
+const SearchPanel = () => {
   return (
     <div id="search-panel">
       <Header setKeyword={props.setKeyword}/>

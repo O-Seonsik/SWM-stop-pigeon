@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./FoldButton.css";
 
-function FoldButton(props) {
+const FoldButton = (props) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   function expand() {
