@@ -1,16 +1,22 @@
 import "./ListItem.css";
 
-function ListItem(props) {
+const ListItem = (props) => {
+  const moveMap = () => {
+    console.log(props.name);
+  }
+
   return (
     <div className="search-list-item">
-      <div className="list-item-index">{props.index + 1}</div>
+      <div className="list-item-index">
+        <div className="index-marker">
+          <div className="index-number">{props.index + 1}</div>
+        </div>
+      </div>
       <div className="list-item-info">
         <div>
           <p>{props.name}</p>
           <p>{props.address}</p>
           <p>{props.phone}</p>
-            <p>{props.x}</p>
-            <p>{props.y}</p>
         </div>
       </div>
     </div>

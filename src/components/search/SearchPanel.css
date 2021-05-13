@@ -4,6 +4,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 3px 0px 10px 0px;
   z-index: 1;
+  font-family: "Apple SD 산돌고딕 Neo";
 
   position: absolute;
   transition: transform 0.5s;

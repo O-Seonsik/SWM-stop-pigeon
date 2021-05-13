@@ -1,6 +1,6 @@
 .search-list-item {
-  height: 120px;
-  margin-top: 20px;
+  height: 105px;
+  margin-top: 10px;
 }
 
 .list-item-index,
@@ -10,19 +10,53 @@
 }
 
 .list-item-index {
-  width: 71px;
+  width: 100px;
   display: grid;
   place-items: center;
 }
 
+.index-marker {
+  width: 30px;
+  height: 45px;
+  background: url("data/images/search/marker_number_background.svg") no-repeat;
+}
+
+.index-number {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 5px;
+}
+
 .list-item-info {
-  width: calc(100% - 71px);
+  width: calc(100% - 100px);
   text-align: left;
-  font-size: 16;
   display: flex;
   align-items: center;
 }
 
-.list-item-info p {
-  margin: 7px 0;
+.info-name {
+  line-height: 21px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.info-address {
+  line-height: 19px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.info-phone {
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0;
+  color: #939597;
 }
