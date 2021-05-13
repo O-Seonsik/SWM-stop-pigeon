@@ -14,13 +14,13 @@ function FilterGroup() {
     <div id="filter-group">
       <FilterItem
         id="pigeon-marker-check"
-        label="마커"
+        label="비둘기 분포 마커 표시"
         defaultChecked={true}
         onChangeEvent={toggleMarker}
       />
       <FilterItem
         id="grid-check"
-        label="그리드"
+        label="비둘기 분포 그리드 표시"
         defaultChecked={false}
         onChangeEvent={toggleGrid}
       />

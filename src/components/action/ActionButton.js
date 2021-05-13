@@ -9,10 +9,12 @@ function ActionButton(props) {
       <img
         className="action-icon"
         src={props.icon} />
-      <span
-        className="action-name">
-        {props.name}
-      </span>
+      <div>
+        <span
+          className="action-name">
+          {props.name}
+        </span>
+      </div>
     </button>
   );
 }

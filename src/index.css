@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'AppleSDGothicNeo';
+  src: local('AppleSDGothicNeo'), url('fonts/AppleSDGothicNeoR00-01.otf') format('opentype');
+}

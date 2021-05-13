@@ -11,16 +11,18 @@ function FilterItem(props) {
 
   return (
     <div className="filter-item">
-      <input
-        id={props.id}
-        type="checkbox"
-        defaultChecked={props.defaultChecked}
-        onChange={onChangeEvent}
-      />
-      <label
-        htmlFor={props.id}>
-        {props.label}
-      </label>
+      <div>
+        <input
+          id={props.id}
+          type="checkbox"
+          defaultChecked={props.defaultChecked}
+          onChange={onChangeEvent}
+        />
+        <label
+          htmlFor={props.id}>
+          {props.label}
+        </label>
+      </div>
     </div>
   );
 }
