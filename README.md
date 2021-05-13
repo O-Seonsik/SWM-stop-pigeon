@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+<br><p align="center"><img src="/readmeImg/logo_word_background.png" width="50%"></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2 align="center">저 새는 해로운 새다</h2>
+<h3 align="center">유해야생동물 집비둘기로부터 살아남기 위한 전쟁</h3>
+<p align="center">
+	<a href="https://github.com/O-Seonsik/SWM-stop-pigeon/search?l=TSX&type=code"><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/O-Seonsik/SWM-stop-pigeon"></a>
+	<a href="https://github.com/O-Seonsik/SWM-stop-pigeon/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/O-Seonsik/SWM-stop-pigeon?color=success"></a>
+	<a href="https://github.com/O-Seonsik/SWM-stop-pigeon/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/O-Seonsik/SWM-stop-pigeon"></a>
+	<a href="https://github.com/O-Seonsik/SWM-stop-pigeon/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/O-Seonsik/SWM-stop-pigeon"></a>
+</p>
+<p align="center"><img src="/readmeImg/hatebird_pigeon.jpg" width="50%"></p>
+<br><br>
 
-## Available Scripts
+## 팀 소개
+<p align="center"><img src="/readmeImg/FunCoolSexy.png"></p>
+<table>
+  <tr>
+    <td align="center" width="80px">직책</td><td align="center" width="100px">이름</td><td align="center" width="300px">담당</td><td align="center" width="120px">Github</td><td align="center">Contact</td>
+  </tr>
+  <tr>
+    <td align="center">팀장</td><td align="center">한일석</td><td align="center">데이터분석, 모델 생성</td><td><a href="https://github.com/x2ever"><img src="http://img.shields.io/badge/x2ever-655ced?style=social&logo=github"/></td><td><a href="mailto:x2ever.han@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=x2ever.han@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">팀원</td><td align="center">김정훈</td><td align="center">kakaomaps, 문서화</td><td><a href="https://github.com/LiiNen"><img src="http://img.shields.io/badge/LiiNen-655ced?style=social&logo=github"/></td><td><a href="mailto:kjeonghoon065@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=kjeonghoon065@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">팀원</td><td align="center">김한슬</td><td align="center">front-end, React</td><td><a href="https://github.com/bluewood-truth"><img src="http://img.shields.io/badge/bluewood-655ced?style=social&logo=github"/></td><td><a href="mailto:bluewood.truth@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=bluewood.truth@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">팀원</td><td align="center">박상욱</td><td align="center">UI/UX, React</td><td><a href="https://github.com/whoisStarBox"><img src="http://img.shields.io/badge/whoisStarBox-655ced?style=social&logo=github"/></td><td><a href="mailto:y2142144@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=y2142144@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">팀원</td><td align="center">신지민</td><td align="center">front-end, CSS</td><td><a href="https://github.com/zimiin"><img src="http://img.shields.io/badge/Jimin Shin-655ced?style=social&logo=github"/></td><td><a href="mailto:kahin6105@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=kahin6105@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">팀원</td><td align="center">오선식</td><td align="center">kakaomaps, React</td><td><a href="https://github.com/O-Seonsik"><img src="http://img.shields.io/badge/O's-655ced?style=social&logo=github"/></td><td><a href="mailto:dhtjstlr777@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=dhtjstlr777@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+  <tr>
+    <td align="center">멘토</td><td align="center">방요셉</td><td align="center">지도/감독</td><td><a href="https://github.com/ezon241"><img src="http://img.shields.io/badge/bang yo sep-655ced?style=social&logo=github"/></td><td><a href="mailto:ezon241@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=ezon241@gmail.com&color=green&style=flat-square&logo=gmail"></td>
+  </tr>
+</table>
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br><br>
