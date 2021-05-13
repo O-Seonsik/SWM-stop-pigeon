@@ -15,3 +15,4 @@ for x, y in data:
 
 with open('school.json', 'w') as fp:
     json.dump(schools, fp)
+f
