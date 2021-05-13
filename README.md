@@ -1,4 +1,4 @@
-<p align="center"><img src="/readmeImg/logo_word_background.png" width="50%"></p>
+<br><p align="center"><img src="/readmeImg/logo_word_background.png" width="50%"></p>
 
 <h2 align="center">저 새는 해로운 새다</h2>
 <h3 align="center">유해야생동물 집비둘기로부터 살아남기 위한 전쟁</h3>
@@ -9,6 +9,7 @@
 	<a href="https://github.com/O-Seonsik/SWM-stop-pigeon/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/O-Seonsik/SWM-stop-pigeon"></a>
 </p>
 <p align="center"><img src="/readmeImg/hatebird_pigeon.jpg" width="50%"></p>
+<br><br>
 
 ## 팀 소개
 <p align="center"><img src="/readmeImg/FunCoolSexy.png"></p>
