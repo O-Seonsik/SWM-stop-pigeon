@@ -19,6 +19,13 @@ const Map = () => {
 
     // 지도 객체를 state로 관리
     map = new kakao.maps.Map(container, options);
+
+    const zoom_controller = new kakao.maps.ZoomControl();
+    map.addControl(zoom_controller, kakao.maps.ControlPosition.RIGHT);
+    kakao.maps.event.addListener(map, 'zoom_changed', function() {
+      var level = map.getLevel();
+      console.log(level); // level 가져오기
+    });
   }, []);
 
 
@@ -79,7 +86,7 @@ const Map = () => {
     // 지도에 표시할 사각형을 생성합니다
     const rectangle = new kakao.maps.Rectangle({
       bounds: rectangleBounds, // 그려질 사각형의 영역정보입니다
-      strokeWeight: 0, // 선의 두께입니다
+      strokeWeight: 1, // 선의 두께입니다
       fillColor: '#FF0000', // 채우기 색깔입니다
       fillOpacity: 0.5 // 채우기 불투명도 입니다
     });
@@ -111,13 +118,14 @@ const Map = () => {
 
   // 그리드 테스트 코드
   const squareTest = () => {
-    for(let i = 1; i <= 10; i++){
-      let num = 0.0001*i;
+    let gridData = JSON.stringify(GridPosition);
+    gridData = JSON.parse(gridData)['data'];
+    for(let i = 1; gridData[i]; i++){
       addSquare({
-        lat1: 37.504293+num,
-        lng1: 127.043858+num,
-        lat2: 37.503663+num,
-        lng2: 127.045092+num
+        lat1: gridData[i]['lat1'],
+        lng1: gridData[i]['lng1'],
+        lat2: gridData[i]['lat2'],
+        lng2: gridData[i]['lng2']
       })
     }
   }
