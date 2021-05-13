@@ -1,0 +1,25 @@
+.action-button {
+  background-color: white;
+  border: 0;
+  /* TODO hover 효과 */
+}
+
+.action-button .action-name {
+  width: 79px;
+  height: 20px;
+  margin: 4px 0 6px 16px;
+  font-family: AppleSDGothicNeo;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.action-button .action-icon {
+  width: 30px;
+  height: 30px;
+}
