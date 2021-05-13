@@ -5,8 +5,8 @@ import numpy as np
 start_x, start_y = 126.8, 37.6
 end_x, end_y = 127.2, 37.4
 
-xn = 200
-yn = 100
+xn = 100
+yn = 50
 
 value = [[0.0 for _ in range(xn)] for _ in range(yn)]
 
@@ -31,11 +31,10 @@ def get_distance(x1, y1, x2, y2):
     return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
 
-for i in range(100):
-    for j in range(200):
+for i in range(yn):
+    for j in range(xn):
         target_x = start_x + (dx * j) + (dx / 2)
         target_y = start_y + (dy * i) + (dy / 2)
-        print(target_x, target_y)
 
         for x, y in zip(school['x'], school['y']):
             d = get_distance(target_x, target_y, x, y)
@@ -51,15 +50,15 @@ for i in range(100):
 
 max_value, min_value = np.max(value), np.min(value)
 
-for i in range(100):
-    for j in range(200):
+for i in range(yn):
+    for j in range(xn):
         value[i][j] = (value[i][j] - min_value) / (max_value - min_value)
 
 
 value_dict = {"data": []}
 
-for i in range(100):
-    for j in range(200):
+for i in range(yn):
+    for j in range(xn):
         x1 = start_x + (dx * j)
         y1 = start_y + (dy * i)
 
