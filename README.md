@@ -49,7 +49,29 @@
 저희는 이러한 사회 문제를 해결하기 위해 비둘기 퇴치와 민원 접수를 간편하게 진행할 수 있도록 하고,<br>
 알고리즘 기반으로 비둘기 출몰 가능성이 높은 지역을 알려주어 도심을 다니는 데에 도움을 줍니다.
 
-<br><br>
+## 프로젝트 구조
+	
+	SWM-stop-pigeon/
+	┝React App/
+	│	┝ Fast Report and Fast Respond
+	│	┝ KaKaoMap API
+	│	┝ Grid or Marker View
+	│	└ Search
+	└data analysis/
+		┝ Data pre-processing
+		┝ Modeling
+		┝ Machine Learning (SVM)
+		└ Export to data
+## 프론트 디자인
+
+[XD 디자인 공유 링크](https://xd.adobe.com/view/64094a6d-bc36-406d-86d0-21dc797c8abf-315a/)
+
+![홈](https://user-images.githubusercontent.com/38056837/118196751-841d5980-b488-11eb-8a69-5f86dd4e0c0b.png)
+![검색 결과](https://user-images.githubusercontent.com/38056837/118196819-9d260a80-b488-11eb-8ff5-4a05b7f03a12.png)
+![그리드 형태로 보기](https://user-images.githubusercontent.com/38056837/118196848-ab742680-b488-11eb-9c3b-6d7521beeefa.png)
+![마커 형태로 보기](https://user-images.githubusercontent.com/38056837/118196887-bcbd3300-b488-11eb-9452-29639809d08f.png)
+![컴포넌트 디자인](https://user-images.githubusercontent.com/38056837/118196914-c6469b00-b488-11eb-9547-20258e2236c9.png)
+
 
 ## 알고리즘 소개 
 
@@ -60,5 +82,6 @@
 이제 거리 영향력, 지역 영향력, 로그 영향력 등의 하이퍼 파라미터를 구하면 됩니다.
 이들의 근사값을 얻기 위해 위해 비둘기 영향력을 지역구별로 적분하였고, 이 적분값이 각 지역구 별 민원접수 비율이 되도록 했습니다.
 이 때 머신러닝 기법 중 하나인 SVM을 적용하였습니다.
+
 
 
