@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Map.css';
+import MarkerPosition from './Marker.json';
 
 //
 const { kakao } = window;
@@ -31,10 +32,13 @@ const Map = () => {
   }
 
   const markerTest = () => {
-    addMarker(37.50388, 127.044488);
-    addMarker(37.50378, 127.044488);
-    addMarker(37.50368, 127.044488);
+    var markerData = JSON.stringify(MarkerPosition);
+    markerData = JSON.parse(markerData);
+    for(var i = 0; markerData[i]; i++) {
+      addMarker(markerData[i]['x'], markerData[i]['y']);
+    }
   }
+
   return (
       <div>
         <div id="map"></div>
