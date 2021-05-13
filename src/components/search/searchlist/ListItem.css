@@ -1,0 +1,28 @@
+.search-list-item {
+  height: 120px;
+  margin-top: 20px;
+}
+
+.list-item-index,
+.list-item-info {
+  height: 100%;
+  float: left;
+}
+
+.list-item-index {
+  width: 71px;
+  display: grid;
+  place-items: center;
+}
+
+.list-item-info {
+  width: calc(100% - 71px);
+  text-align: left;
+  font-size: 16;
+  display: flex;
+  align-items: center;
+}
+
+.list-item-info p {
+  margin: 7px 0;
+}
