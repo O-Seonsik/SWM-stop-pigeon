@@ -32,6 +32,7 @@ const Map = () => {
     marker.setMap(map);
   }
 
+  // 마커 테스트 코드
   const markerTest = () => {
     for(let i = 1; i <= 800; i++){
       let a = 0.0001 * i;
@@ -59,6 +60,7 @@ const Map = () => {
     rectangle.setMap(map);
   }
 
+  // 그리드 테스트 코드
   const squareTest = () => {
     for(let i = 1; i <= 10000; i++){
       let num = 0.0001*i;
