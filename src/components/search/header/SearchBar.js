@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import "./SearchBar.css";
 
-
 const SearchBar = (props) => {
     const search = () => {
         let input = document.getElementById('input-search');
         props.setKeyword(input.value)
-        alert("!");
-        console.log(input.value);
     }
 
   return (
@@ -17,7 +14,6 @@ const SearchBar = (props) => {
         <button className="search-icon" onClick={search}>검색</button>
       </div>
     </div>
-    
   );
 }
 

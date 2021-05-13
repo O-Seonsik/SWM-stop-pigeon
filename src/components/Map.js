@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import './Map.css';
 import MarkerPosition from '../data_analysis/point.json';
 import GridPosition from '../data_analysis/grid.json';
@@ -6,7 +6,7 @@ import GridPosition from '../data_analysis/grid.json';
 //
 const { kakao } = window;
 
-const Map = () => {
+const Map = (props) => {
   let map;
   useEffect(() => {
     // 지도를 담을 영역의 DOM 레퍼런스
@@ -19,7 +19,7 @@ const Map = () => {
 
     // 지도 객체를 state로 관리
     map = new kakao.maps.Map(container, options);
-    
+
     kakao.maps.event.addListener(map, 'zoom_changed', function() {
       var level = map.getLevel();
       var center_position = map.getCenter();
@@ -35,6 +35,55 @@ const Map = () => {
       squareTestLevel(level, center_position['Ma'], center_position['La']);
     });
   }, []);
+
+
+  const panTo = forwardRef((props, ref) => {
+    useImperativeHandle(ref, () => ({
+      move() {
+        console.log("나는 메인의 자식이다");
+        // const moveLatLon = new kakao.maps.LatLng(y, x);
+        //
+        // // 지도 중심을 부드럽게 이동시킵니다
+        // // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+        // map.setCenter(moveLatLon)
+      }
+    }))
+  })
+
+  // 검색
+  // 장소 검색 객체를 생성합니다
+  const ps = new kakao.maps.services.Places();
+  // 키워드로 장소를 검색합니다
+  ps.keywordSearch(props.keyword, placesSearchCB);
+  // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+  function placesSearchCB(data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+
+      const searchResult = [];
+
+      for(let i = 0; i < data.length; i++){
+        searchResult.push({
+          name: data[i]['place_name'],
+          address: data[i]['address_name'],
+          phone: data[i]['phone'],
+          x: data[i]['x'],
+          y: data[i]['y']
+        })
+      }
+
+      props.setSearchResult(searchResult);
+    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+      alert('검색 결과가 존재하지 않습니다.');
+      return;
+
+    } else if (status === kakao.maps.services.Status.ERROR) {
+
+      alert('검색 결과 중 오류가 발생했습니다.');
+      return;
+
+    }
+  }
 
   const squareTestLevel = (level, c_lat, c_lng) => {
     let gridData = JSON.stringify(GridPosition);
@@ -82,47 +131,6 @@ const Map = () => {
       hideSquares();
     }
   }
-  // 검색
-  // 장소 검색 객체를 생성합니다
-  const ps = new kakao.maps.services.Places();
-
-  // 키워드로 장소를 검색합니다
-  ps.keywordSearch("선릉역 맛집", placesSearchCB);
-
-  // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-  function placesSearchCB(data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
-      // const
-      let search_data;
-
-      console.log(data)
-      console.log(status)
-      console.log(pagination)
-
-      // 정상적으로 검색이 완료됐으면
-      // 검색 목록과 마커를 표출합니다
-      // displayPlaces(data);
-
-      // 페이지 번호를 표출합니다
-      // displayPagination(pagination);
-
-    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-
-      alert('검색 결과가 존재하지 않습니다.');
-      return;
-
-    } else if (status === kakao.maps.services.Status.ERROR) {
-
-      alert('검색 결과 중 오류가 발생했습니다.');
-      return;
-
-    }
-  }
-
-  
-  // 검색
-
-
 
   const markers = [];
 
@@ -161,13 +169,12 @@ const Map = () => {
   const markerTest = () => {
     let markerData = JSON.stringify(MarkerPosition);
     markerData = JSON.parse(markerData)['data'];
-    for(var i = 0; markerData[i]; i++) {
+    for(let i = 0; markerData[i]; i++) {
       addMarker(markerData[i]['x'], markerData[i]['y']);
     }
   }
 
-
-  var squares = [];
+  let squares = [];
 
   const addSquare = (grid, fillvalue) => {
     const sw = new kakao.maps.LatLng(grid.lat1, grid.lng1), // 사각형 영역의 남서쪽 좌표
@@ -223,7 +230,7 @@ const Map = () => {
       }, 0.5)
     }
   }
-  
+
   function zoomIn(){
     map.setLevel(map.getLevel() - 1);
   }
@@ -239,9 +246,15 @@ const Map = () => {
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
         <button className="test" onClick={hideSquares}>hide square test</button>
+<<<<<<< HEAD
         <div class="custom_zoomcontrol"> 
           <span className="zoomInBtn" onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>  
           <span className="zoomOutBtn" onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
+=======
+        <div class="custom_zoomcontrol radius_border">
+          <span onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
+          <span onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
+>>>>>>> cb17ddc9a7c07784f834ec6182c5d3e8a9cc5bb0
         </div>
       </div>
   );

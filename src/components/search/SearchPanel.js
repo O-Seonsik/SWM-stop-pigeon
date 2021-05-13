@@ -21,11 +21,11 @@ const placeList = [
   },
 ];
 
-const SearchPanel = () => {
+const SearchPanel = (props) => {
   return (
     <div id="search-panel">
       <Header setKeyword={props.setKeyword}/>
-      <SearchList placeList={placeList} />
+      <SearchList placeList={props.searchResult} />
       <Footer />
     </div>
   );

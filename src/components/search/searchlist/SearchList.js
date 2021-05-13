@@ -15,6 +15,8 @@ const SearchList = (props) => {
                 name={place.name}
                 address={place.address}
                 phone={place.phone}
+                x={place.x}
+                y={place.y}
               />
             );
           })}
