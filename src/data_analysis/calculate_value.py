@@ -5,8 +5,8 @@ import numpy as np
 start_x, start_y = 126.8, 37.6
 end_x, end_y = 127.2, 37.4
 
-xn = 200
-yn = 100
+xn = 100
+yn = 50
 
 value = [[0.0 for _ in range(xn)] for _ in range(yn)]
 

@@ -1,3 +1,5 @@
 .search-title .logo {
   padding-top: 45px;
+  display: flex;
+  justify-content: center;
 }
