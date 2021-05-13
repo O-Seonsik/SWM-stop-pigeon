@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Map.css';
-import MarkerPosition from './data_analysis/point.json';
-import GridPosition from './data_analysis/grid.json';
+import MarkerPosition from '../data_analysis/point.json';
 
 //
 const { kakao } = window;
@@ -58,8 +57,8 @@ const Map = () => {
 
   // 마커 테스트 코드
   const markerTest = () => {
-    var markerData = JSON.stringify(MarkerPosition);
-    markerData = JSON.parse(markerData);
+    let markerData = JSON.stringify(MarkerPosition);
+    markerData = JSON.parse(markerData)['data'];
     for(var i = 0; markerData[i]; i++) {
       addMarker(markerData[i]['x'], markerData[i]['y']);
     }
@@ -94,7 +93,7 @@ const Map = () => {
 
   // 마커 설정하기
   const setSquares = (map) => {
-    for(let i = 0; i < markers.length; i++){
+    for(let i = 0; i < squares.length; i++){
       squares[i].setMap(map);
     }
   }
