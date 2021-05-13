@@ -60,3 +60,12 @@
   margin-top: 0;
   color: #939597;
 }
+
+.list-item-divider {
+  width: 360px;
+  height: 1px;
+  margin: auto;
+  background-color: #F2F2F2;
+  position: relative;
+  top: 110px;
+}
