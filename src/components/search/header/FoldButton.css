@@ -1,0 +1,11 @@
+.fold-button {
+  width: 24px;
+  height: 80px;
+  background-color: #f3853a;
+  border-radius: 0 3px 3px 0;
+  position: absolute;
+  top: calc((250px - 80px) / 2);
+  right: -24px;
+  border: none;
+  color:white;
+}
