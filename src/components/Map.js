@@ -3,6 +3,12 @@ import './Map.css';
 import MarkerPosition from '../data_analysis/point.json';
 import GridPosition from '../data_analysis/grid.json';
 
+import marker_pigeon_green from 'data/images/marker/marker_pigeon_green.svg';
+import marker_pigeon_lightgreen from 'data/images/marker/marker_pigeon_lightgreen.svg';
+import marker_pigeon_yellow from 'data/images/marker/marker_pigeon_yellow.svg';
+import marker_pigeon_orange from 'data/images/marker/marker_pigeon_orange.svg';
+import marker_pigeon_red from 'data/images/marker/marker_pigeon_red.svg';
+
 //
 const { kakao } = window;
 
@@ -134,11 +140,20 @@ const Map = (props) => {
 
   const markers = [];
 
-  const addMarker = ( lat, lng ) => {
+  const addMarker = ( lat, lng, value ) => {
     // 마커를 생성합니다
+
+    var imageSrc = markerSrc(value), // 마커이미지의 주소입니다    
+        imageSize = new kakao.maps.Size(30, 45), // 마커이미지의 크기입니다
+        imageOption = { offset: new kakao.maps.Point(15, 45) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+    
     const markerPosition = new kakao.maps.LatLng(lat, lng);
     const marker = new kakao.maps.Marker({
-      position: markerPosition
+      position: markerPosition,
+      image: markerImage,
     });
 
     // 마커가 지도 위에 표시되도록 설정합니다
@@ -170,8 +185,24 @@ const Map = (props) => {
     let markerData = JSON.stringify(MarkerPosition);
     markerData = JSON.parse(markerData)['data'];
     for(let i = 0; markerData[i]; i++) {
-      addMarker(markerData[i]['x'], markerData[i]['y']);
+      addMarker(markerData[i]['x'], markerData[i]['y'], markerData[i]['value']);
     }
+  }
+
+  function markerSrc(value) {
+    var src = [
+      marker_pigeon_green,
+      marker_pigeon_lightgreen,
+      marker_pigeon_yellow,
+      marker_pigeon_orange,
+      marker_pigeon_red,
+    ];
+
+    return src[density(value)];
+  }
+
+  function density(value) {
+    return Math.floor(value / 2 * 10);
   }
 
   let squares = [];
@@ -246,9 +277,9 @@ const Map = (props) => {
         <button className="test" onClick={squareTest}>add square test</button>
         <button className="test" onClick={showSquares}>show square test</button>
         <button className="test" onClick={hideSquares}>hide square test</button>
-        <div class="custom_zoomcontrol radius_border">
-          <span onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
-          <span onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
+        <div className="custom_zoomcontrol"> 
+          <span className="zoomInBtn" onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>  
+          <span className="zoomOutBtn" onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
         </div>
       </div>
   );

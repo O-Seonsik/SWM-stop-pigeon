@@ -40,7 +40,7 @@ function ActionGroup() {
         <div id="action-group">
             <ActionButton
                 icon={icon_stop}
-                name="비둘기 쫓기"
+                name={playing ? "소리 멈추기" : "비둘기 쫓기"}
                 onClickEvent={toggle}
             />
             <ActionDivider />

@@ -3,3 +3,9 @@
   display: flex;
   justify-content: center;
 }
+
+.search-title img {
+  width: 275px;
+  height: 80px;
+  margin: 0 65.3px 0 59.7px;
+}

@@ -4,7 +4,13 @@
   display: table-cell;
   align-items: center;
   display: flex;
-  /* TODO hover 효과 */
+  cursor: pointer;
+  height: 50px;
+}
+
+.action-button:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
 }
 
 .action-button .action-name {
