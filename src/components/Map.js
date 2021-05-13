@@ -239,12 +239,12 @@ const Map = () => {
   return (
       <div id="map-container">
         <div id="map"></div>
-        <button onClick={markerTest}>add marker test</button>
-        <button onClick={showMarkers}>show marker test</button>
-        <button onClick={hideMarkers}>hide marker test</button>
-        <button onClick={squareTest}>add square test</button>
-        <button onClick={showSquares}>show square test</button>
-        <button onClick={hideSquares}>hide square test</button>
+        <button className="test" onClick={markerTest}>add marker test</button>
+        <button className="test" onClick={showMarkers}>show marker test</button>
+        <button className="test" onClick={hideMarkers}>hide marker test</button>
+        <button className="test" onClick={squareTest}>add square test</button>
+        <button className="test" onClick={showSquares}>show square test</button>
+        <button className="test" onClick={hideSquares}>hide square test</button>
       </div>
   );
 };
