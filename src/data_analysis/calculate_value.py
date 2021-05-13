@@ -5,8 +5,8 @@ import numpy as np
 start_x, start_y = 126.8, 37.6
 end_x, end_y = 127.2, 37.4
 
-xn = 100
-yn = 50
+xn = 200
+yn = 100
 
 value = [[0.0 for _ in range(xn)] for _ in range(yn)]
 
@@ -24,7 +24,7 @@ with open('park.json') as json_file:
 
 
 def value_function(distance, weight):
-    return 1 / (30 * distance + 1 / weight)
+    return 1 / (200 * distance + 1 / weight)
 
 
 def get_distance(x1, y1, x2, y2):
@@ -38,7 +38,7 @@ for i in range(yn):
 
         for x, y in zip(school['x'], school['y']):
             d = get_distance(target_x, target_y, x, y)
-            value[i][j] += value_function(d, 1)
+            value[i][j] += value_function(d, 0.2)
 
         for x, y in zip(subway['x'], subway['y']):
             d = get_distance(target_x, target_y, x, y)
