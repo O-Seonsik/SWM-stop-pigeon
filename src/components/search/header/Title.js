@@ -1,7 +1,7 @@
 import LogoWord from 'data/images/search/logo_word.png'
 import './Title.css'
 
-function Title() {
+const Title = () => {
   return (
     <div className="search-title">
       <a className="logo" href=".">

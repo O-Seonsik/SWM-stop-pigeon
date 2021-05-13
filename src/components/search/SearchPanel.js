@@ -21,7 +21,7 @@ const placeList = [
   },
 ];
 
-function SearchPanel() {
+const SearchPanel = () => {
   return (
     <div id="search-panel">
       <Header />

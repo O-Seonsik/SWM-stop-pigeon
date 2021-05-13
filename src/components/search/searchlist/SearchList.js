@@ -14,7 +14,7 @@ props = {
 }
  */
 
-function SearchList(props) {
+const SearchList = (props) => {
   const showList = () => {
     if (props.placeList !== undefined) {
       return (

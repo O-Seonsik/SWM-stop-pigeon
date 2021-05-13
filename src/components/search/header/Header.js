@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import FoldButton from "./FoldButton";
 import './Header.css';
 
-function Header() {
+const Header = () => {
   return (
     <div className='search-header'>
       <Title />

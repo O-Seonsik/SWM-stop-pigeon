@@ -1,6 +1,6 @@
 import "./ListItem.css";
 
-function ListItem(props) {
+const ListItem = (props) => {
   const moveMap = () => {
     console.log(props.name);
   }
