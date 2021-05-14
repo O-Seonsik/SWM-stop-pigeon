@@ -22,7 +22,6 @@ const placeList = [
 ];
 
 const SearchPanel = (props) => {
-  console.log(props.searchResult)
   return (
     <div id="search-panel">
       <Header setKeyword={props.setKeyword} isSearch={props.isSearch} setIsSearch={props.setIsSearch}/>

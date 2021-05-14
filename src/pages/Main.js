@@ -20,6 +20,8 @@ const Main = () => {
     const [keyword, setKeyword] = useState();
     const [searchResult, setSearchResult] = useState();
     const [isSearch, setIsSearch] = useState();
+    const [isGrid, setIsGrid] = useState(false);
+    const [isMarker, setIsMarker] = useState(true);
 
     let map;
     useEffect(() => {
@@ -34,6 +36,13 @@ const Main = () => {
         // 지도 객체를 state로 관리
         map = new kakao.maps.Map(container, options)
 
+        markerTest();
+    }, []);
+
+    const test = () => {
+        var level = map.getLevel();
+        var center_position = map.getCenter();
+        squareTestLevel(level, center_position['Ma'], center_position['La']);
         kakao.maps.event.addListener(map, 'zoom_changed', function() {
             var level = map.getLevel();
             var center_position = map.getCenter();
@@ -48,9 +57,7 @@ const Main = () => {
             var center_position = map.getCenter();
             squareTestLevel(level, center_position['Ma'], center_position['La']);
         });
-    }, []);
-
-
+    }
 
     // 검색
     // 장소 검색 객체를 생성합니다
@@ -217,7 +224,7 @@ const Main = () => {
         // 지도에 표시할 사각형을 생성합니다
         const rectangle = new kakao.maps.Rectangle({
             bounds: rectangleBounds, // 그려질 사각형의 영역정보입니다
-            strokeWeight: 1, // 선의 두께입니다
+            strokeWeight: 0, // 선의 두께입니다
             fillColor: '#FF0000', // 채우기 색깔입니다
             fillOpacity: fillvalue // 채우기 불투명도 입니다
         });
@@ -230,7 +237,7 @@ const Main = () => {
     }
 
 
-    // 마커 설정하기
+    // 그리드 설정하기
     const setSquares = (map) => {
         for(let i = 0; i < squares.length; i++){
             squares[i].setMap(map);
@@ -247,19 +254,6 @@ const Main = () => {
         setSquares(null);
     }
 
-    // 그리드 테스트 코드
-    const squareTest = (level) => {
-        let gridData = JSON.stringify(GridPosition);
-        gridData = JSON.parse(gridData)['data'];
-        for(let i = 1; gridData[i]; i++){
-            addSquare({
-                lat1: gridData[i]['lat1'],
-                lng1: gridData[i]['lng1'],
-                lat2: gridData[i]['lat2'],
-                lng2: gridData[i]['lng2']
-            }, 0.5)
-        }
-    }
 
     function zoomIn(){
         map.setLevel(map.getLevel() - 1);
@@ -281,10 +275,22 @@ const Main = () => {
         map = new kakao.maps.Map(container, options);
         const moveLatLon = new kakao.maps.LatLng(x, y);
         // 지도 중심을 이동 시킵니다
-        console.log(map);
         map.setCenter(moveLatLon);
+        if(isMarker){
+            markerTest();
+        }else{
+            hideMarkers();
+        }
+        var checkbox = document.getElementById("grid-check");
+        checkbox.click();
+        hideSquares();
     }
-    console.log(keyword)
+
+    if(isMarker){
+
+    }else{
+        hideMarkers();
+    }
     return (
         <div id="map-container">
             <SearchPanel isSearch={isSearch} setIsSearch={setIsSearch} setCenter={setCenter} setKeyword={setKeyword} searchResult={searchResult} />
@@ -293,7 +299,6 @@ const Main = () => {
                 <button className="test" onClick={markerTest}>add marker test</button>
                 <button className="test" onClick={showMarkers}>show marker test</button>
                 <button className="test" onClick={hideMarkers}>hide marker test</button>
-                <button className="test" onClick={squareTest}>add square test</button>
                 <button className="test" onClick={showSquares}>show square test</button>
                 <button className="test" onClick={hideSquares}>hide square test</button>
             </div>
@@ -301,7 +306,7 @@ const Main = () => {
                 <span className="zoomInBtn" onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
                 <span className="zoomOutBtn" onClick={zoomOut}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></img></span>
             </div>
-            <FilterGroup />
+            <FilterGroup showMarkers={showMarkers} hideMarkers={hideMarkers} showGrids={test} hideGrids={hideSquares}/>
             <ActionGroup />
         </div>
     );
