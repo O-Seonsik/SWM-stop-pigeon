@@ -36,6 +36,13 @@ const Main = () => {
         // 지도 객체를 state로 관리
         map = new kakao.maps.Map(container, options)
 
+        markerTest();
+    }, []);
+
+    const test = () => {
+        var level = map.getLevel();
+        var center_position = map.getCenter();
+        squareTestLevel(level, center_position['Ma'], center_position['La']);
         kakao.maps.event.addListener(map, 'zoom_changed', function() {
             var level = map.getLevel();
             var center_position = map.getCenter();
@@ -50,13 +57,6 @@ const Main = () => {
             var center_position = map.getCenter();
             squareTestLevel(level, center_position['Ma'], center_position['La']);
         });
-        markerTest();
-    }, []);
-
-    const test = () => {
-        var level = map.getLevel();
-        var center_position = map.getCenter();
-        squareTestLevel(level, center_position['Ma'], center_position['La']);
     }
 
     // 검색
@@ -188,7 +188,6 @@ const Main = () => {
 
     // 마커 테스트 코드
     const markerTest = () => {
-        console.log("!!!!!");
         let markerData = JSON.stringify(MarkerPosition);
         markerData = JSON.parse(markerData)['data'];
         for(let i = 0; markerData[i]; i++) {
@@ -225,7 +224,7 @@ const Main = () => {
         // 지도에 표시할 사각형을 생성합니다
         const rectangle = new kakao.maps.Rectangle({
             bounds: rectangleBounds, // 그려질 사각형의 영역정보입니다
-            strokeWeight: 1, // 선의 두께입니다
+            strokeWeight: 0, // 선의 두께입니다
             fillColor: '#FF0000', // 채우기 색깔입니다
             fillOpacity: fillvalue // 채우기 불투명도 입니다
         });
@@ -282,12 +281,14 @@ const Main = () => {
         }else{
             hideMarkers();
         }
+        var checkbox = document.getElementById("grid-check");
+        checkbox.click();
+        hideSquares();
     }
 
     if(isMarker){
-        console.log(isMarker, isGrid);
+
     }else{
-        console.log("!!!");
         hideMarkers();
     }
     return (
