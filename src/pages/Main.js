@@ -208,7 +208,17 @@ const Main = () => {
     }
 
     function density(value) {
-        return Math.floor(value / 2 * 10);
+        if (value < 0.1) {
+            return 0;
+        } else if (value < 0.2) {
+            return 1;
+        } else if (value < 0.3) {
+            return 2;
+        } else if (value < 0.4) {
+            return 3;
+        } else {
+            return 4;
+        }
     }
 
     let squares = [];
