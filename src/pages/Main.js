@@ -30,33 +30,46 @@ const Main = () => {
 
         const options = {
             center: new kakao.maps.LatLng(37.503825, 127.044652),
-            level: 3,
+            level: 1,
         };
 
         // 지도 객체를 state로 관리
         map = new kakao.maps.Map(container, options)
 
         markerTest();
+		const markerPosition = new kakao.maps.LatLng(37.503985, 127.044811);
+        const marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
     }, []);
 
     const test = () => {
-        var level = map.getLevel();
-        var center_position = map.getCenter();
-        squareTestLevel(level, center_position['Ma'], center_position['La']);
-        kakao.maps.event.addListener(map, 'zoom_changed', function() {
-            var level = map.getLevel();
-            var center_position = map.getCenter();
-            squareTestLevel(level, center_position['Ma'], center_position['La']);
-            //level 1: 6, 3
-            //level 2: 8, 4
-            //level 3: 16, 8
-            //level 4: 28, 14
-        });
-        kakao.maps.event.addListener(map, 'dragend', function() {
-            var level = map.getLevel();
-            var center_position = map.getCenter();
-            squareTestLevel(level, center_position['Ma'], center_position['La']);
-        });
+		try{
+			var level = map.getLevel();
+			var center_position = map.getCenter();
+			squareTestLevel(level, center_position['Ma'], center_position['La']);
+			kakao.maps.event.addListener(map, 'zoom_changed', function() {
+				var level = map.getLevel();
+				var center_position = map.getCenter();
+				squareTestLevel(level, center_position['Ma'], center_position['La']);
+				//level 1: 6, 3
+				//level 2: 8, 4
+				//level 3: 16, 8
+				//level 4: 28, 14
+			});
+			kakao.maps.event.addListener(map, 'dragend', function() {
+				var level = map.getLevel();
+				var center_position = map.getCenter();
+				squareTestLevel(level, center_position['Ma'], center_position['La']);
+        	});
+		}catch{
+			alert('잘못된 접근입니다.');
+			window.location.reload();
+		}
+        
     }
 
     // 검색
@@ -87,11 +100,13 @@ const Main = () => {
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
             alert('검색 결과가 존재하지 않습니다.');
+			window.location.reload();
             return;
 
         } else if (status === kakao.maps.services.Status.ERROR) {
 
             alert('검색 결과 중 오류가 발생했습니다.');
+			window.location.reload();
             return;
 
         }
@@ -292,7 +307,7 @@ const Main = () => {
             hideMarkers();
         }
         var checkbox = document.getElementById("grid-check");
-        checkbox.click();
+		if(checkbox.value == true) checkbox.click();
         hideSquares();
     }
 

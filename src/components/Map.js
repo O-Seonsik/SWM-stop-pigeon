@@ -94,23 +94,23 @@ const Map = (props) => {
     let gridData = JSON.stringify(GridPosition);
     gridData = JSON.parse(gridData)['data'];
     var lat_half, lng_half, lat_min, lat_max, lng_min, lng_max;
-    if(level == 1){
+    if(level === 1){
       lat_half = 3;
       lng_half = 4;
     }
-    else if(level == 2) {
+    else if(level === 2) {
       lat_half = 3;
       lng_half = 6;
     }
-    else if(level == 3) {
+    else if(level === 3) {
       lat_half = 4;
       lng_half = 8;
     }
-    else if(level == 4) {
+    else if(level === 4) {
       lat_half = 7;
       lng_half = 14;
     }
-    else if(level == 5) {
+    else if(level === 5) {
       lat_half=10;
       lng_half = 22;
     }

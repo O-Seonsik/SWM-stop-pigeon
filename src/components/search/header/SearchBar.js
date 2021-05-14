@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cancel from 'data/images/search/cancel.png';
 import "./SearchBar.css";
 
@@ -14,7 +14,7 @@ const SearchBar = (props) => {
   }
 
   const onKeyPress = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       search();
     }
   }
@@ -35,7 +35,7 @@ const SearchBar = (props) => {
           onKeyPress={onKeyPress}
         />
         <button className="search-cancel">
-          <img src={cancel} onClick={cancelClick}/>
+          <img src={cancel} onClick={cancelClick} alt=""/>
         </button>
       </div>
     </div>

@@ -8,7 +8,8 @@ function ActionButton(props) {
     >
       <img
         className="action-icon"
-        src={props.icon} />
+        src={props.icon} 
+		alt=""/>
       <div>
         <span
           className="action-name">
