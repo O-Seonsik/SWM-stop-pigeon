@@ -320,11 +320,6 @@ const Main = () => {
             <SearchPanel isSearch={isSearch} setIsSearch={setIsSearch} setCenter={setCenter} setKeyword={setKeyword} searchResult={searchResult} />
             <div>
                 <div id="map"></div>
-                <button className="test" onClick={markerTest}>add marker test</button>
-                <button className="test" onClick={showMarkers}>show marker test</button>
-                <button className="test" onClick={hideMarkers}>hide marker test</button>
-                <button className="test" onClick={showSquares}>show square test</button>
-                <button className="test" onClick={hideSquares}>hide square test</button>
             </div>
             <div className="custom_zoomcontrol">
                 <span className="zoomInBtn" onClick={zoomIn}><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></img></span>
