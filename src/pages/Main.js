@@ -117,11 +117,11 @@ const Main = () => {
             lat_half = 7;
             lng_half = 14;
         }
-        else if(level == 5) {
+        else{
             lat_half=10;
-            lng_half = 22;
+            lng_half = 20;
         }
-        if(level<=5) {
+        if(level) {
             lat_min = c_lat - lat_half * 0.002;
             lat_max = c_lat + lat_half * 0.002;
             lng_min = c_lng - lng_half * 0.002;
