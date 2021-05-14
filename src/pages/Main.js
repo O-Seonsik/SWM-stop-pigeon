@@ -20,7 +20,6 @@ const Main = () => {
     const [keyword, setKeyword] = useState();
     const [searchResult, setSearchResult] = useState();
     const [isSearch, setIsSearch] = useState();
-    const [isGrid, setIsGrid] = useState(false);
     const [isMarker, setIsMarker] = useState(true);
 
     let map;
@@ -66,7 +65,7 @@ const Main = () => {
 				squareTestLevel(level, center_position['Ma'], center_position['La']);
         	});
 		}catch{
-			alert('잘못된 접근입니다.');
+			alert('검색 결과를 먼저 클릭해주세요.');
 			window.location.reload();
 		}
         
@@ -116,19 +115,19 @@ const Main = () => {
         let gridData = JSON.stringify(GridPosition);
         gridData = JSON.parse(gridData)['data'];
         var lat_half, lng_half, lat_min, lat_max, lng_min, lng_max;
-        if(level == 1){
+        if(level === 1){
             lat_half = 3;
             lng_half = 4;
         }
-        else if(level == 2) {
+        else if(level === 2) {
             lat_half = 3;
             lng_half = 6;
         }
-        else if(level == 3) {
+        else if(level === 3) {
             lat_half = 4;
             lng_half = 8;
         }
-        else if(level == 4) {
+        else if(level === 4) {
             lat_half = 7;
             lng_half = 14;
         }
@@ -307,7 +306,7 @@ const Main = () => {
             hideMarkers();
         }
         var checkbox = document.getElementById("grid-check");
-		if(checkbox.value == true) checkbox.click();
+		if(checkbox.value === true) checkbox.click();
         hideSquares();
     }
 
